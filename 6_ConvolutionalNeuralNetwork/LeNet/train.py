@@ -1,9 +1,11 @@
 import os
 import sys
-sys.path.append('/home/york/code/DeepLearning/6_ConvolutionalNeuralNetwork/LeNet')
+# sys.path.append('/home/york/code/DeepLearning/6_ConvolutionalNeuralNetwork/LeNet')
 import torch
 from torchvision import datasets,transforms
 from models.LeNet import LeNet
+# sys.path.append('/home/york/code/DeepLearning/7_Modern_Deep_Learing/AlexNet/model')
+# from models.AlexNet import AlexNet
 import ipdb
 
 if __name__=='__main__':
@@ -51,5 +53,5 @@ if __name__=='__main__':
                 pred=output.argmax(dim=1,keepdim=True)
                 correct+=pred.eq(target.view_as(pred)).sum().item()
         print('Epoch:{}\tAccuracy:{:.2f}%'.format(epoch,correct/len(test_loader.dataset)*100))
-        torch.save(net.state_dict(),'model{}.pth'.format(epoch))
+        torch.save(net.state_dict(),'model_Alex_{}.pth'.format(epoch))
 
